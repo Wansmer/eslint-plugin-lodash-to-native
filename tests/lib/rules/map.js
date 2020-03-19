@@ -65,5 +65,12 @@ ruleTester.run("lodash-to-native/map", rule, {
         message: "change _.map by native, if possible. Fix it auto with eslint."
       }]
     },
+    // show error if argument of function had default value array
+    {
+      code: "const funcWithDefaultVal = (arr = [], fn) => {_.map(arr, fn);}",
+      errors: [{ 
+        message: "change _.map by native, if possible. Fix it auto with eslint."
+      }]
+    },
   ]
 });
