@@ -53,5 +53,17 @@ ruleTester.run("lodash-to-native/map", rule, {
         message: "change _.map by native, if possible. Fix it auto with eslint."
       }]
     },
+    {
+      code: "const arr = new Array(); _.map(arr, (x) => x);",
+      errors: [{ 
+        message: "change _.map by native, if possible. Fix it auto with eslint."
+      }]
+    },
+    {
+      code: "let arr = new Object(); arr = new Array(); _.map(arr, (x) => x);",
+      errors: [{ 
+        message: "change _.map by native, if possible. Fix it auto with eslint."
+      }]
+    },
   ]
 });
