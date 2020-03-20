@@ -9,23 +9,47 @@
 **До:**
 ```js
 const array = [1, 2, 3];
-
 const result = _.map(array, (x) => x * 2);
 
-const object = {1: 1, 2: 2, 3: 3};
+const result2 = _.map([1, 2, 3], (x) => x * 2);
 
-const result2 = _.map(object, (x) => x * 2);
+const array2 = new Array([1, 2, 3]);
+const result = _.map(array2, (x) => x * 2);
+
+function argIsArrayDefault (arr = []) {
+    return _.map(arr, (x) => x * 2);
+}
+
+function noHaveDefaultValue (arr) {
+    return _.map(arr, (x) => x * 2);
+}
+
+const object = {1: 1, 2: 2, 3: 3};
+const resultObj = _.map(object, (x) => x * 2);
 ```  
 
 **После:**  
 
 ```js
+// произошла замена
 const array = [1, 2, 3];
-
 const result = array.map((x) => x * 2);
 
-const object = {1: 1, 2: 2, 3: 3};
+const result2 = [1, 2, 3].map((x) => x * 2);
 
+const array2 = new Array([1, 2, 3]);
+const result = array2.map((x) => x * 2);
+
+function argIsArrayDefault (arr = []) {
+    return arr.map((x) => x * 2);
+}
+
+// осталось без изменений
+function noHaveDefaultValue (arr) {
+    return _.map(arr, (x) => x * 2);
+}
+
+const object = {1: 1, 2: 2, 3: 3};
 const result2 = _.map(object, (x) => x * 2);
 ```  
 
