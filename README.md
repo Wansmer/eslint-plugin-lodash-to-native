@@ -1,43 +1,38 @@
-# eslint-plugin-lodash-to-native
+# SHRI-2020: eslint-plugin-lodash-to-native
 
 change _.map by native, if possible
 
-## Installation
+## Установка
+Для работы плагина предварительно нужно установить [`eslint`](https://www.npmjs.com/package/eslint) и [`babel-eslint`](https://www.npmjs.com/package/babel-eslint).
 
-You'll first need to install [ESLint](http://eslint.org):
-
-```
-$ npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-lodash-to-native`:
-
-```
-$ npm install eslint-plugin-lodash-to-native --save-dev
+```bash
+$ npm i eslint babel-eslint -D
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-lodash-to-native` globally.
+Затем установить `eslint-plugin-lodash-to-native`:
 
-## Usage
+```
+$ npm i eslint-plugin-lodash-to-native -D
+```
 
-Add `lodash-to-native` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+## Использование
+
+Добавьте `lodash-to-native` в секцию с плагинами в `.eslintrc`, `babel-eslint` в секцию **`parser`** и правило `lodash-to-native/map` в секцию **`rules`**:
 
 ```json
-{
-    "plugins": [
-        "lodash-to-native"
-    ]
-}
+
 ```
 
 
 Then configure the rules you want to use under the rules section.
 
 ```json
-{
-    "rules": {
-        "lodash-to-native/rule-name": 2
-    }
+{ 
+  "plugins": ["lodash-to-native"],
+  "parser": "babel-eslint",
+  "rules": {
+      "lodash-to-native/map": "error"
+  }
 }
 ```
 
